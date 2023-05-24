@@ -1,2 +1,7 @@
-package org.nhnacademy.family.domain;public class HouseholdSerialNumberDto {
+package org.nhnacademy.family.domain;
+
+public interface HouseholdSerialNumberDto {
+
+    long getHouseholdHouseholdSerialNumber();
+
 }

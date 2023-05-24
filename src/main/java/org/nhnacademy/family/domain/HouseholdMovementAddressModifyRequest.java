@@ -6,11 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class HouseholdMovementAddressRegisterRequest {
-
-    private LocalDate houseMovementReportDate;
-
-    private long householdSerialNumber;
+public class HouseholdMovementAddressModifyRequest {
 
     private String householdMovementAddress;
 

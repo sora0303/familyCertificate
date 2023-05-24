@@ -1,2 +1,4 @@
-package org.nhnacademy.family.controller;public interface ControllerBase {
+package org.nhnacademy.family.controller;
+
+public interface ControllerBase {
 }

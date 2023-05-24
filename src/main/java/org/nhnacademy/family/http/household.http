@@ -1,0 +1,42 @@
+### 세대등록
+POST /household
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "residentSerialNumber" : 2,
+  "householdCompositionDate" : "2009-10-02",
+  "householdCompositionReasonCode" : "세대분리",
+  "currentHouseMovementAddress" : "경기도 성남시 분당구 대왕판교로 645번길"
+}
+
+### 세대삭제
+DELETE /household/2
+Host: localhost:8080
+Content-Type: application/json
+
+### 세대전입주소 등록
+POST /household/2/movement
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "houseMovementReportDate" : "20091002",
+  "householdMovementAddress" : "경기도 성남시 분당구 대왕판교로 645번길",
+  "lastAddressYn" : "N"
+}
+
+### 세대전입주소 수정
+PUT /household/2/movement/20091002
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "householdMovementAddress" : "서울시 동작구 상도로 940번길",
+  "lastAddressYn" : "Y"
+}
+
+### 세대전입주소 삭제
+DELETE /household/2/movement/20091002
+Host: localhost:8080
+Content-Type: application/json

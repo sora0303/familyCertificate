@@ -1,7 +1,8 @@
-package org.nhnacademy.family.entity;
+package org.nhnacademy.family.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,25 +11,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import org.nhnacademy.family.entity.Resident;
 import org.nhnacademy.family.enumclass.CertificateTypeCode;
 
-@Getter
-@Setter
-@Entity
-@Table(name = "certificate_issue")
-public class CertificateIssue {
+public interface CertificateIssueDto {
 
-    @Id
-    @Column(name = "certificate_confirmation_number")
-    private BigDecimal certificateConfirmationNumber;
+    BigDecimal getCertificateConfirmationNumber();
 
-    @Column(name = "certificate_type_code")
-    private CertificateTypeCode certificateTypeCode;
+    String getCertificateTypeCode();
 
-    @Column(name = "certificate_issue_date")
-    private LocalDate certificateIssueDate;
+    LocalDate getCertificateIssueDate();
 
-    @ManyToOne
-    @JoinColumn(name = "resident_serial_number")
-    private Resident resident;
+    Resident getResident();
 }

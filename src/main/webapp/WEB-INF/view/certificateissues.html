@@ -4,6 +4,27 @@
 <head>
     <meta charset="UTF-8"/>
     <title>증명서 발급 목록</title>
+    <style>
+        table {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
 </head>
 <body>
 <h1 style="text-align: center">증명서 발급 목록</h1>
@@ -14,8 +35,8 @@
         <th>증명서 종류</th>
     </tr>
     <tr th:each="certificateIssue : ${certificateIssues}">
-        <td th:text="${certificateIssue.certificateIssueDate)}"></td>
-        <td th:text="${certificateIssue.certificateConfirmationNumber}"></td>
+        <td th:text="${certificateIssue.certificateIssueDate}"></td>
+        <td th:text="${#strings.substring(certificateIssue.certificateConfirmationNumber, 0, 8) + '-' + #strings.substring(certificateIssue.certificateConfirmationNumber, 8)}"></td>
         <td th:text="${certificateIssue.certificateTypeCode}"></td>
 
     </tr>

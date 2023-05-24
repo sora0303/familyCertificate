@@ -1,6 +1,13 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="family:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/family_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/family-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>family</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -99,8 +106,12 @@
           <element id="library" level="project" name="Maven: com.nimbusds:lang-tag:1.7" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-oauth2-jose:5.8.3" />
           <element id="library" level="project" name="Maven: com.nimbusds:nimbus-jose-jwt:9.24.4" />
+          <element id="library" level="project" name="Maven: org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.5.RELEASE" />
         </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/family-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="family/web/Web" />
     </root>

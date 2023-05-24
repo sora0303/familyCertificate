@@ -1,102 +1,131 @@
-CREATE TABLE IF NOT EXISTS `Users` (
-    `user_id`   VARCHAR(50) NOT NULL,
-    `password`  VARCHAR(50) NOT NULL,
+-- 1. 기존 테이블 삭제
+drop table if exists `resident`;
+drop table if exists `birth_death_report_resident`;
+drop table if exists `family_relationship`;
+drop table if exists household;
+drop table if exists `household_movement_address`;
+drop table if exists `household_composition_resident`;
+drop table if exists `certificate_issue`;
 
-    PRIMARY KEY(`user_id`)
+
+-- 2. 테이블 생성
+create table `resident`
+(
+    `resident_serial_number`
+         bigint not null auto_increment,
+    `name` varchar(100) not null,
+    `resident_registration_number`
+         varchar(300) not null,
+    `gender_code`
+         varchar(20)  not null,
+    `birth_date`
+         timestamp not null,
+    `birth_place_code`
+         varchar(20)  not null,
+    `registration_base_address`
+         varchar(500) not null,
+    `death_date`
+         timestamp null,
+    `death_place_code`
+         varchar(20) null,
+    `death_place_address`
+         varchar(500) null,
+    primary key (`resident_serial_number`
+        )
 );
 
-MERGE INTO `Users` KEY ( `user_id` ) VALUES ( 'admin', '12345' );
-MERGE INTO `Users` KEY ( `user_id` ) VALUES ( 'dongmyo', '67890' );
+create table `birth_death_report_resident`
 
-create table if not exists `Items` (
-    `item_id` bigint not null auto_increment,
-    `item_name` varchar(40) not null,
-    `price` bigint not null,
 
-    primary key(`item_id`)
+(
+    `resident_serial_number`
+        bigint not null,
+    `birth_death_type_code`
+        varchar(20) not null,
+    `report_resident_serial_number`
+        bigint not null,
+    `birth_death_report_date`
+        date        not null,
+    `birth_report_qualifications_code`
+        varchar(20) null,
+    `death_report_qualifications_code`
+        varchar(20) null,
+    `email_address`
+        varchar(50) null,
+    `phone_number`
+        varchar(20) not null,
+    primary key (`resident_serial_number`, `birth_death_type_code`
+        )
 );
 
-create table if not exists `Orders` (
-    `order_id` bigint not null auto_increment,
-    `order_date` timestamp not null,
+create table `family_relationship`
 
-    primary key(`order_id`)
+(
+    `base_resident_serial_number`
+        bigint not null,
+    `family_resident_serial_number`
+        bigint not null,
+    `family_relationship_code`
+        varchar(20) not null,
+    primary key (`base_resident_serial_number`, `family_resident_serial_number`
+        )
 );
 
-create table if not exists `OrderItems` (
-    `order_id` bigint not null,
-    `line_number` integer not null,
-    `item_id` bigint not null,
-    `quantity` integer not null,
-
-    primary key(`order_id`, `line_number`)
+create table `household`
+(
+    `household_serial_number`
+        bigint not null,
+    `household_resident_serial_number`
+        bigint not null,
+    `household_composition_date`
+        date         not null,
+    `household_composition_reason_code`
+        varchar(20)  not null,
+    `current_house_movement_address`
+        varchar(500) not null,
+    primary key (`household_serial_number`
+        )
 );
 
-merge into `Items` key (`item_id`) values (  1, 'apple',  300 );
-merge into `Items` key (`item_id`) values (  2, 'grape',  200 );
-merge into `Items` key (`item_id`) values (  3, 'banana', 150 );
-merge into `Items` key (`item_id`) values (  4, 'cherry', 250 );
-merge into `Items` key (`item_id`) values (  5, 'kiwi',   400 );
-merge into `Items` key (`item_id`) values (  6, 'lemon',  250 );
-merge into `Items` key (`item_id`) values (  7, 'lime',   250 );
-merge into `Items` key (`item_id`) values (  8, 'mango',  350 );
-merge into `Items` key (`item_id`) values (  9, 'orange', 200 );
-merge into `Items` key (`item_id`) values ( 10, 'peach',  300 );
-merge into `Items` key (`item_id`) values ( 11, 'melon',  100 );
-
-merge into `Orders` key (`order_id`) values ( 1001, '2018-08-23 10:30:00' );
-merge into `Orders` key (`order_id`) values ( 1002, '2018-08-24 21:15:30' );
-
-merge into `OrderItems` key (`order_id`, `line_number`) values ( 1001, 1, 1, 3 );
-merge into `OrderItems` key (`order_id`, `line_number`) values ( 1001, 2, 2, 1 );
-merge into `OrderItems` key (`order_id`, `line_number`) values ( 1001, 3, 3, 2 );
-
-merge into `OrderItems` key (`order_id`, `line_number`) values ( 1002, 1, 4, 1 );
-merge into `OrderItems` key (`order_id`, `line_number`) values ( 1002, 2, 5, 1 );
-merge into `OrderItems` key (`order_id`, `line_number`) values ( 1002, 3, 6, 2 );
-merge into `OrderItems` key (`order_id`, `line_number`) values ( 1002, 4, 7, 1 );
-merge into `OrderItems` key (`order_id`, `line_number`) values ( 1002, 5, 8, 5 );
-merge into `OrderItems` key (`order_id`, `line_number`) values ( 1002, 6, 9, 1 );
-
-drop table if exists `Members`;
-drop table if exists `Lockers`;
-
-create table if not exists `Members` (
-    `member_id` varchar(255) not null,
-    `user_name` varchar(255),
-
-    primary key (`member_id`)
+create table `household_movement_address`
+(
+    `household_serial_number`
+        bigint not null,
+    `house_movement_report_date`
+        date                   not null,
+    `house_movement_address`
+        varchar(500)           not null,
+    `last_address_yn`
+        varchar(1) default 'Y' not null,
+    primary key (`household_serial_number`, `house_movement_report_date`
+        )
 );
 
-create table if not exists `Lockers` (
-    `locker_id` bigint not null,
-    `member_id` varchar(255) not null,
-    `locker_name` varchar(50),
-
-    primary key (`locker_id`)
+create table `household_composition_resident`
+(
+    `household_serial_number`
+        bigint not null,
+    `resident_serial_number`
+        bigint not null,
+    `report_date`
+        date        not null,
+    `household_relationship_code`
+        varchar(20) not null,
+    `household_composition_change_reason_code`
+        varchar(20) not null,
+    primary key (`household_serial_number`, `resident_serial_number`
+        )
 );
 
-create table if not exists `Boards` (
-    `board_id` bigint not null,
-    `title` varchar(50) not null,
-
-    primary key (`board_id`)
-);
-
-create table if not exists `BoardDetails` (
-    `board_id` bigint not null,
-    `content` varchar(255),
-
-    primary key (`board_id`)
-);
-
-drop table if exists `MemberDetails`;
-
-create table if not exists `MemberDetails` (
-    `member_detail_id` bigint not null,
-    `member_id` varchar(255) null,
-    `type` varchar(45) not null,
-    `description` varchar(255),
-
-    primary key (`member_detail_id`)
+create table `certificate_issue`
+(
+    `certificate_confirmation_number`
+        bigint      not null,
+    `resident_serial_number`
+        int         not null,
+    `certificate_type_code`
+        varchar(20) not null,
+    `certificate_issue_date`
+        date        not null,
+    primary key (`certificate_confirmation_number`)
 );

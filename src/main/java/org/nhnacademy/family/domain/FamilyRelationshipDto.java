@@ -1,60 +1,17 @@
-package org.nhnacademy.family.entity;
+package org.nhnacademy.family.domain;
 
-import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.time.LocalDateTime;
 
-@Setter
-@Getter
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
-@Table(name = "family_relationship")
-public class FamilyRelationship {
+public interface FamilyRelationshipDto {
 
-    @EmbeddedId
-    private Pk pk;
+    String getFamilyRelationshipCode();
 
-    @MapsId("familyResidentSerialNumber")
-    @ManyToOne
-    @JoinColumn(name = "family_resident_serial_number")
-    private Resident residentFamily;
+    String getName();
 
-    @MapsId("baseResidentSerialNumber")
-    @ManyToOne
-    @JoinColumn(name = "base_resident_serial_number")
-    private Resident residentBase;
+    String getResidentRegistrationNumber();
 
-    @Column(name = "family_relationship_code")
-    private String familyRelationshipCode;
+    String getGenderCode();
 
-
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Setter
-    @Getter
-    @EqualsAndHashCode
-    @Embeddable
-    public static class Pk implements Serializable {
-        @Column(name = "family_resident_serial_number")
-        private long familyResidentSerialNumber;
-
-        @Column(name = "base_resident_serial_number")
-        private long baseResidentSerialNumber;
-    }
+    LocalDateTime getBirthDate();
 
 }

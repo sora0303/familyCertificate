@@ -1,2 +1,4 @@
-package org.nhnacademy.family.repository;public interface RepositoryBase {
+package org.nhnacademy.family.repository;
+
+public interface RepositoryBase {
 }

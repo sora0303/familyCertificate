@@ -4,21 +4,10 @@ import java.time.LocalDate;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
-import org.nhnacademy.family.enumclass.BirthDeathTypeCode;
 import org.nhnacademy.family.enumclass.BirthReportQualificationsCode;
 
 @Data
-public class BirthReportRegisterRequest {
-
-    @NotNull
-    @NotBlank
-    private BirthDeathTypeCode birthDeathTypeCode;
-
-    @NotNull
-    private long residentSerialNumber;
-
-    @NotNull
-    private long reportResidentSerialNumber;
+public class BirthReportModifyRequest {
 
     @NotNull
     private LocalDate birthDeathReportDate;
@@ -30,9 +19,5 @@ public class BirthReportRegisterRequest {
     @NotNull
     @NotBlank
     private String phoneNumber;
-
-
-
-
 
 }

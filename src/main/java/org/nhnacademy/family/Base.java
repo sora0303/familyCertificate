@@ -1,2 +1,4 @@
-package org.nhnacademy.family;public interface Base {
+package org.nhnacademy.family;
+
+public interface Base {
 }

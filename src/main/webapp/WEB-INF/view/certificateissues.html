@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>증명서 발급 목록</title>
+</head>
+<body>
+<h1 style="text-align: center">증명서 발급 목록</h1>
+<table>
+    <tr>
+        <th>발급일</th>
+        <th>증명서 확인 번호</th>
+        <th>증명서 종류</th>
+    </tr>
+    <tr th:each="certificateIssue : ${certificateIssues}">
+        <td th:text="${certificateIssue.certificateIssueDate)}"></td>
+        <td th:text="${certificateIssue.certificateConfirmationNumber}"></td>
+        <td th:text="${certificateIssue.certificateTypeCode}"></td>
+
+    </tr>
+</table>
+
+<div th:if="${certificateIssues.totalPages > 1}" style="text-align: center;">
+    <ul class="pagination">
+        <span th:class="${certificateIssues.first ? 'disabled' : ''}" th:unless="${certificateIssues.first}">
+            <a th:href="@{|?page=0&size=${certificateIssues.size}|}">&laquo;</a>
+        </span>
+        <span th:class="${certificateIssues.first ? 'disabled' : ''}" th:unless="${certificateIssues.first}">
+            <a th:href="@{|?page=${certificateIssues.number - 1}&size=${certificateIssues.size}|}">&lsaquo;</a>
+        </span>
+        <span th:each="page : ${#numbers.sequence(0, certificateIssues.totalPages - 1)}"
+              th:class="${page == certificateIssues.number ? 'active' : ''}">
+            <a th:href="@{|?page=${page}&size=${certificateIssues.size}|}" th:text="${page + 1}"></a>
+        </span>
+        <span th:class="${certificateIssues.last ? 'disabled' : ''}" th:unless="${certificateIssues.last}">
+            <a th:href="@{|?page=${certificateIssues.number + 1}&size=${certificateIssues.size}|}">&rsaquo;</a>
+        </span>
+        <span th:class="${certificateIssues.last ? 'disabled' : ''}" th:unless="${certificateIssues.last}">
+            <a th:href="@{|?page=${certificateIssues.totalPages - 1}&size=${certificateIssues.size}|}">&raquo;</a>
+        </span>
+    </ul>
+</div>
+</body>
+</html>

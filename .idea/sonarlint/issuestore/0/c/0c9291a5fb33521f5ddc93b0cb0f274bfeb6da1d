@@ -1,0 +1,8 @@
+
+n
+java:S1128	"QRemove this unused import 'org.nhnacademy.family.domain.ResidentRegisterRequest'.(â¬àò8¨åİéƒ1
+t
+java:S1128
+"RRemove this unused import 'org.nhnacademy.family.entity.HouseholdMovementAddress'.(¯®Í²úÿÿÿÿ8¨åİéƒ1
+w
+java:S1128"ZRemove this unused import 'org.nhnacademy.family.service.BirthDeathReportResidentService'.(°¢õÍ8¨åİéƒ1

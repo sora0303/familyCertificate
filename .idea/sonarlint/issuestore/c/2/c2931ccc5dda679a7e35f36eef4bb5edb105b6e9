@@ -1,0 +1,22 @@
+
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8àÚ‹Ëƒ1
+W
+java:S1128":Remove this unused import 'javax.persistence.CascadeType'.( ì¤Ê8àÚ‹Ëƒ1
+Q
+java:S1128"5Remove this unused import 'javax.persistence.Column'.(ìûæH8÷Ğ‚Ëƒ1
+N
+java:S1128"1Remove this unused import 'javax.persistence.Id'.(ş¹ŞÜ8´ëùÊƒ1
+V
+java:S1128"9Remove this unused import 'javax.persistence.JoinColumn'.(´Å¼á8ÓƒËƒ1
+Z
+java:S1128	"8Remove this unused import 'javax.persistence.ManyToOne'.(ÇÑ²øÿÿÿÿ8ÓƒËƒ1
+T
+java:S1128
+"8Remove this unused import 'javax.persistence.OneToMany'.(«õù;8àÚ‹Ëƒ1
+x
+java:S1128"VRemove this unused import 'org.nhnacademy.family.entity.HouseholdCompositionResident'.(‰¹àæøÿÿÿÿ8àÚ‹Ëƒ1
+t
+java:S1128"RRemove this unused import 'org.nhnacademy.family.entity.HouseholdMovementAddress'.(¯®Í²úÿÿÿÿ8àÚ‹Ëƒ1
+_
+java:S1128"BRemove this unused import 'org.nhnacademy.family.entity.Resident'.(¸€œÓ8šºŒËƒ1

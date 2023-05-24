@@ -1,0 +1,12 @@
+
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†¥ñ8¸õ¥„1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8àÈæ¢„1
+w
+java:S1128"URemove this unused import 'org.nhnacademy.family.controller.HouseholdRestController'.(’­ş¹ÿÿÿÿÿ8¶•ä¢„1
+t
+java:S1128"RRemove this unused import 'org.nhnacademy.family.entity.HouseholdMovementAddress'.(¯®Í²úÿÿÿÿ8áÈæ¢„1
+s
+java:S1128"QRemove this unused import 'org.nhnacademy.family.repository.HouseholdRepository'.(ä××­ÿÿÿÿÿ8¶•ä¢„1
+i
+java:S1128	"LRemove this unused import 'org.springframework.data.repository.query.Param'.(©”šô8™½ä¢„1

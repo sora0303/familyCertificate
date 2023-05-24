@@ -1,0 +1,13 @@
+
+j
+java:S1128"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonFormat'.(ıÙè‹øÿÿÿÿ8”„°Ÿƒ1
+g
+java:S1128"JRemove this unused import 'com.fasterxml.jackson.annotation.JsonProperty'.(ËÃ§Ï8Ÿ“éƒ1
+x
+java:S1128"VRemove this unused import 'com.fasterxml.jackson.databind.annotation.JsonDeserialize'.(Úˆ×øÿÿÿÿ8”„°Ÿƒ1
+„
+java:S1128"bRemove this unused import 'com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer'.(ÖŸ’·úÿÿÿÿ8”„°Ÿƒ1
+X
+java:S1128	"6Remove this unused import 'lombok.AllArgsConstructor'.(´œ¾öùÿÿÿÿ8˜÷Ìƒ1
+R
+java:S1128"5Remove this unused import 'lombok.NoArgsConstructor'.(¸¨›8¬èŸƒ1
